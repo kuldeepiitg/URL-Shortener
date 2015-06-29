@@ -1,5 +1,9 @@
 package in.interview.google;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import org.junit.Test;
 
 /**
@@ -10,12 +14,16 @@ import org.junit.Test;
 public class CrawlerTest {
 
 	@Test
-	public void testNext() {
+	public void testNext() throws IOException {
 		
-//		Crawler crawler = new Crawler("https://en.wikipedia.org/wiki/Main_Page");
+		BufferedWriter bw = new BufferedWriter(new FileWriter("urls.bkp"));
 		Crawler crawler = new Crawler("https://www.google.co.in");
-		for (int i = 0; i < 1000 && crawler.hasNext(); i++) {
-			System.out.println(crawler.next());
+		long startTime = System.currentTimeMillis();
+		while(crawler.hasNext() && (System.currentTimeMillis() - startTime) < 6*60*60*1000) {
+			String url = crawler.next();
+			bw.write(url + "\n");
 		}
+		
+		bw.close();
 	}
 }

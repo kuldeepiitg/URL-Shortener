@@ -32,11 +32,6 @@ public class Crawler implements Iterator<String>{
 	 */
 	private Pattern pattern;
 	
-	/**
-	 * The logger.
-	 */
-	private Logger logger;
-	
 	public Crawler(String seedURL) {
 		super();
 		this.urlsToFetch = new LinkedList<String>();
@@ -44,7 +39,6 @@ public class Crawler implements Iterator<String>{
 		this.uniqueURLs = new HashSet<String>(urlsToFetch);
 		String urlRegex = "(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
 		this.pattern = Pattern.compile(urlRegex);
-//		this.logger = LoggerFactory.getLogger(Crawler.class);
 	}
 
 	@Override
@@ -82,7 +76,6 @@ public class Crawler implements Iterator<String>{
 				}
 			}
 		} catch (IOException e) {
-			logger.debug("Failed in getting line iterator for " + url);
 			e.printStackTrace();
 		} finally {
 			return urls;
