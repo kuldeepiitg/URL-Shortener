@@ -76,7 +76,7 @@ public class Crawler implements Iterator<String>{
 				}
 			}
 		} catch (IOException e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 		} finally {
 			return urls;
 		}

@@ -19,9 +19,13 @@ public class CrawlerTest {
 		BufferedWriter bw = new BufferedWriter(new FileWriter("urls.bkp"));
 		Crawler crawler = new Crawler("https://www.google.co.in");
 		long startTime = System.currentTimeMillis();
+		int count = 0;
 		while(crawler.hasNext() && (System.currentTimeMillis() - startTime) < 6*60*60*1000) {
 			String url = crawler.next();
 			bw.write(url + "\n");
+			if (count % 1000 == 0) {
+				bw.flush();
+			}
 		}
 		
 		bw.close();
