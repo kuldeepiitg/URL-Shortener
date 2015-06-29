@@ -26,7 +26,7 @@ public class DownloaderTest {
 		Pattern pattern = Pattern.compile(regex);
 		
 		LinkedList<String> list = new LinkedList<String>();
-//		list.add("https://en.wikipedia.org/wiki/Main_Page");
+		list.add("https://en.wikipedia.org/wiki/Main_Page");
 		list.add("https://www.google.co.in");
 		int count = 1000;
 		
@@ -51,7 +51,6 @@ public class DownloaderTest {
 				}
 			}
 		}
-		
 	}
 
 }
