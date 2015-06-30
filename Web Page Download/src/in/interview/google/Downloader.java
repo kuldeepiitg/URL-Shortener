@@ -74,6 +74,7 @@ public class Downloader {
 			try {
 				loadLookAhead();
 			} catch (IOException e) {
+				lookAhead = null;
 				e.printStackTrace();
 			}
 			return toReturn;
