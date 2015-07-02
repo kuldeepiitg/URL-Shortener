@@ -8,8 +8,6 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.slf4j.Logger;
-
 /**
  * Crawler to iterate over URLs.
  * 
@@ -76,7 +74,7 @@ public class Crawler implements Iterator<String>{
 				}
 			}
 		} catch (IOException e) {
-//			e.printStackTrace();
+			e.printStackTrace();
 		} finally {
 			return urls;
 		}

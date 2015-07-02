@@ -50,7 +50,7 @@ public class URLShortener {
 	/**
 	 * @param shortURL
 	 * 		short url
-	 * @return	id of the url
+	 * @return	id of the short url
 	 */
 	public int elongate(String shortURL) {
 		
