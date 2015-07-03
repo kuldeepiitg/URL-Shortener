@@ -16,11 +16,13 @@ public class URLManagerTest {
 	public void testGetShortURL() throws Exception {
 		
 		URLManager manager = new URLManager();
-		Crawler crawler = new Crawler("https://www.google.co.in");
+
+		Crawler crawler = new Crawler("https://www.facebook.com");
 		for (int i = 0; i < 100; i++) {
 			String url = crawler.next();
 			assertEquals(url, manager.getURL(manager.getShortURL(url)));
 		}
+		
 	}
 
 }
