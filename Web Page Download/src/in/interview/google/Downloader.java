@@ -7,6 +7,9 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.Iterator;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Download related utilities for web crawler.
  * 
@@ -14,6 +17,11 @@ import java.util.Iterator;
  */
 public class Downloader {
 
+	/**
+	 * Logger to pin down important info
+	 */
+	private Logger logger = LoggerFactory.getLogger(getClass());
+	
 	/**
 	 * @param url
 	 * 			url of a web page to download
@@ -75,6 +83,7 @@ public class Downloader {
 				loadLookAhead();
 			} catch (IOException e) {
 				lookAhead = null;
+				logger.debug("failed while loading next element");
 				e.printStackTrace();
 			}
 			return toReturn;

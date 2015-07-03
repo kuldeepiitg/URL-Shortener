@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Crawler to iterate over URLs.
  * 
@@ -30,6 +33,11 @@ public class Crawler implements Iterator<String>{
 	 */
 	private Pattern pattern;
 	
+	/**
+	 * Logger to pin down important points
+	 */
+	private Logger logger;
+	
 	public Crawler(String seedURL) {
 		super();
 		this.urlsToFetch = new LinkedList<String>();
@@ -37,6 +45,7 @@ public class Crawler implements Iterator<String>{
 		this.uniqueURLs = new HashSet<String>(urlsToFetch);
 		String urlRegex = "(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
 		this.pattern = Pattern.compile(urlRegex);
+		this.logger = LoggerFactory.getLogger(getClass());
 	}
 
 	@Override
@@ -74,6 +83,7 @@ public class Crawler implements Iterator<String>{
 				}
 			}
 		} catch (IOException e) {
+			logger.debug("Couldn't get page from web to parse");
 			e.printStackTrace();
 		} finally {
 			return urls;
