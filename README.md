@@ -1,2 +1,2 @@
-# Web-Crawler
-Naive implementation of tiny web crawler. It is made to collect urls.
+# URL Shortener
+Implementation of a url shortener. Also includes a tiny web crawler which collects urls.
